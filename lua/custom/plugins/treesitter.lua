@@ -6,7 +6,7 @@ return {
     config = function()
       local langs = {
         'lua', 'python', 'javascript', 'typescript', 'tsx', 'vim', 'vimdoc',
-        'bash', 'markdown', 'markdown_inline', -- markdown_inline needed by render-markdown
+        'bash', 'markdown', 'markdown_inline',
       }
       require('nvim-treesitter').install(langs)
       vim.api.nvim_create_autocmd('FileType', {

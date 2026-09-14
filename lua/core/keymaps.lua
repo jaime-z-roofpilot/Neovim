@@ -46,7 +46,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Which-key registration
 local wk = require('which-key')
 wk.add({
-  { "<leader>a", group = "[A]vante AI" },
   { "<leader>b", group = "[B]uffer" },
   { "<leader>c", group = "[C]ode" },
   { "<leader>d", group = "[D]ebug" },

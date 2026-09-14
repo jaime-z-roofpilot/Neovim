@@ -19,6 +19,20 @@ vim.o.hlsearch        = false
 vim.wo.relativenumber = true
 vim.o.mouse           = 'a'
 vim.o.clipboard       = 'unnamedplus'
+
+-- WSL: the Windows clipboard hands back CRLF, strip \r on paste so buffers don't get ^M
+vim.g.clipboard = {
+  name = 'wl-clipboard (strip CR)',
+  copy = {
+    ['+'] = { 'wl-copy', '--type', 'text/plain' },
+    ['*'] = { 'wl-copy', '--primary', '--type', 'text/plain' },
+  },
+  paste = {
+    ['+'] = { 'sh', '-c', "wl-paste --no-newline | tr -d '\\r'" },
+    ['*'] = { 'sh', '-c', "wl-paste --no-newline --primary | tr -d '\\r'" },
+  },
+  cache_enabled = 0,
+}
 vim.o.breakindent     = true
 vim.o.undofile        = true
 vim.o.ignorecase      = true
